@@ -1,4 +1,4 @@
-const route = async(req, res) => {
+const route = async() => {
   return { status: 200, message: 'Hello World' };
 };
 

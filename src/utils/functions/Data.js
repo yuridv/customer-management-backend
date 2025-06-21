@@ -1,6 +1,8 @@
 const Data = (options = {}, data = undefined) => {
   const date = data ? new Date(data) : new Date();
 
+  if (!data && date.getTimezoneOffset() === 180) date.setHours(date.getHours() - 3);
+
   if (options.seconds) date.setSeconds(date.getSeconds() + options.seconds);
   if (options.minutes) date.setMinutes(date.getMinutes() + options.minutes);
   if (options.hours) date.setHours(date.getHours() + options.hours);
