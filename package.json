@@ -1,0 +1,46 @@
+{
+  "name": "customer-management",
+  "description": "Back-end developed in Node.js for a customer management CRM for my TCC",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && node index.js",
+    "dev": "clear && nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuridv/customer-management-backend.git"
+  },
+  "keywords": [
+    "node",
+    "sass",
+    "crm",
+    "clients",
+    "tcc",
+    "faculdade"
+  ],
+  "author": "Yuri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuridv/customer-management-backend/issues"
+  },
+  "homepage": "https://github.com/yuridv/customer-management-backend#readme",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^9.1.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^8.57.1",
+    "nodemon": "^3.1.10"
+  }
+}
