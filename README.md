@@ -17,5 +17,5 @@ PORT='3000'
 CRYPTOGRAPHY_KEY='key_test'
 
 # DATABASE - MONGODB
-MONGO_URL='mongodb+srv://user:password@cluster.mongodb.net/database?retryWrites=true&w=majority'
+MONGO_URL='mongodb+srv://user:password@cluster.mongodb.net/database'
 ```
