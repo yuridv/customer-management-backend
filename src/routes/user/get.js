@@ -14,15 +14,15 @@ const route = async(req, res) => {
       limit: { type: 'number', min: 1, default: 10 }
     });
 
-    const page = parseInt(req.query.page) || 1;
-    const skip = (page - 1) * req.query.limit;
-
     const query = {};
     if (req.query.id) query._id = req.query.id;
     if (req.query.name) query.name = { $regex: req.query.name, $options: 'i' };
     if (req.query.email) query.email = { $regex: req.query.email, $options: 'i' };
     if (req.query.role) query.role = req.query.role;
-    if (req.query.status || req.query.status === 0) query.ativo = req.query.status;
+    if (req.query.status || req.query.status === 0) query.status = req.query.status;
+
+    const page = parseInt(req.query.page) || 1;
+    const skip = (page - 1) * req.query.limit;
 
     let users = await User.find(query)
       .skip(skip)
@@ -31,10 +31,18 @@ const route = async(req, res) => {
 
     if (req.login.role !== 'ADMIN') users = users.map((user) => ({ _id: user._id, name: user.name }));
 
-    const total = await User.countDocuments(query);
-    const totalPages = Math.ceil(total / req.query.limit);
+    const count = await User.countDocuments(query);
+    const total = Math.ceil(count / req.query.limit);
 
-    return { status: 200, page, totalPages, users };
+    return {
+      status: 200,
+      users,
+      page: {
+        current: page,
+        total: total,
+        count: count
+      }
+    };
   } catch(err) {
     return Errors(err, __filename)
       .then(() => route(req, res))

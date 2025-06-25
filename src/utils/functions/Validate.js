@@ -96,9 +96,15 @@ const Types = {
 
     if (typeof value === 'string') {
       if (value.length === 10) {
-        value = new Date(value);
-        if (isNaN(value.getTime())) return rej(`* O campo '${key}' não é uma data valida.`);
-        value.setHours(value.getHours() + 3);
+        if (value.includes('/')) {
+          value = new Date(value.split('/').reverse().join('-'));
+          if (isNaN(value.getTime())) return rej(`* O campo '${key}' não é uma data valida.`);
+          value.setHours(value.getHours() + 3);
+        } else {
+          value = new Date(value);
+          if (isNaN(value.getTime())) return rej(`* O campo '${key}' não é uma data valida.`);
+          value.setHours(value.getHours() + 3);
+        }
       } else if (value.includes('T')) {
         value = new Date(value);
         if (isNaN(value.getTime())) return rej(`* O campo '${key}' não é uma data valida.`);
