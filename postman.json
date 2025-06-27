@@ -1,0 +1,1958 @@
+{
+	"info": {
+		"_postman_id": "01719104-e1db-47e3-bf5c-e26976b833b7",
+		"name": "Customer Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44372655"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/check",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/auth/check",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"check"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-BwsIxTNISE2Ve3//vUkes5GBOSE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:28:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"O seu token está valido e autenticado...\",\n    \"user\": {\n        \"_id\": \"685b6cbe8179dc8585094961\",\n        \"email\": \"dev@dev.com\",\n        \"name\": \"Developer Tester System\",\n        \"role\": \"ADMIN\",\n        \"status\": 1,\n        \"createdAt\": \"2025-06-25T03:27:58.986Z\",\n        \"updatedAt\": \"2025-06-25T03:27:58.986Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/auth/check",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"check"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-cgA2sY8TyxZF+6yKQ/5gUliDIrg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:28:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"O token não foi informado...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = JSON.parse(responseBody)",
+									"pm.collectionVariables.set('TOKEN', res.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/token",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/auth/token",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"token"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fb-u2bKWCJJnjoIvt8MT/S9DTI9N7Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:27:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWI2Y2JlODE3OWRjODU4NTA5NDk2MSIsImVtYWlsIjoiZGV2QGRldi5jb20iLCJpYXQiOjE3NTA4MjU2NjEsImV4cCI6MTc1MDgzNjQ2MX0.BsHjoSjvXyejnLEI9oZPDAZwpTZfwCXq-o7VyetSmzo\",\n    \"expiresIn\": \"2025-06-25T04:27:41.818Z\"\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/auth/token",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"auth",
+										"token"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-eaJJt6d1u+kKXEXtq4kgJ3aRHp0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:28:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"A senha inserida é invalida...\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user?page=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "68572c5fb5262f7d18223103",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "developer",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "dev@dev.com",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "USER",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/user?page=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "68572c5fb5262f7d18223103",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "developer",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "dev@dev.com",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "USER",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "662"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"296-Xpf+nT9OPOipX+sZoeD1wfmE1vc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:30:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"_id\": \"685b6cbf8179dc8585094967\",\n            \"email\": \"user@user.com\",\n            \"name\": \"User Tester System\",\n            \"role\": \"USER\",\n            \"status\": 1,\n            \"createdAt\": \"2025-06-25T03:27:59.321Z\",\n            \"updatedAt\": \"2025-06-25T03:27:59.321Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cbf8179dc8585094963\",\n            \"email\": \"admin@admin.com\",\n            \"name\": \"Administrator Tester System\",\n            \"role\": \"ADMIN\",\n            \"status\": 1,\n            \"createdAt\": \"2025-06-25T03:27:59.161Z\",\n            \"updatedAt\": \"2025-06-25T03:27:59.161Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cbe8179dc8585094961\",\n            \"email\": \"dev@dev.com\",\n            \"name\": \"Developer Tester System\",\n            \"role\": \"ADMIN\",\n            \"status\": 1,\n            \"createdAt\": \"2025-06-25T03:27:58.986Z\",\n            \"updatedAt\": \"2025-06-25T03:27:58.986Z\",\n            \"__v\": 0\n        }\n    ],\n    \"page\": {\n        \"current\": 1,\n        \"total\": 1,\n        \"count\": 3\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/user?role=USER1&page=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "68572c5fb5262f7d18223103",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "developer",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "dev@dev.com",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "USER1"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-2hFGoTuxABk2+3Rof6EahTlEaxE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:30:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\n\\n* O campo 'role' precisa ser igual a um desses: 'USER, ADMIN'\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user@123!\",\n    \"name\": \"User Tester Login\",\n    \"role\": \"USER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"test@123!\",\n    \"name\": \"Test Tester Login\",\n    \"role\": \"USER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-WC0M2hhC0ZEIhi4OVcKORtW4neE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:31:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"O usuário foi cadastrado com sucesso!\",\n    \"user\": {\n        \"email\": \"test@test.com\",\n        \"name\": \"Test Tester Login\",\n        \"role\": \"USER\",\n        \"status\": 1,\n        \"_id\": \"685b7b8d27519e12c594b0e6\",\n        \"createdAt\": \"2025-06-25T04:31:09.310Z\",\n        \"updatedAt\": \"2025-06-25T04:31:09.310Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"test@123!\",\n    \"name\": \"Test Tester Login\",\n    \"role\": \"USER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-0XiSnd9alu2SyP7AbBAF+k+i23o\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:31:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"O campo 'email' com o valor 'test@test.com' já existe no nosso sistema...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user@123!\",\n    \"name\": \"User Tester Login\",\n    \"role\": \"USER\",\n    \"status\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user?id=685b6cbf8179dc8585094967",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "685b6cbf8179dc8585094967"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user@123!\",\n    \"name\": \"User Tester Login\",\n    \"role\": \"USER\",\n    \"status\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user?id=685b6cbf8179dc8585094967",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b6cbf8179dc8585094967"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-F4UTvhapRTaezZC5MepKMKMShZk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:32:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Os dados do usuário foi alterado com sucesso!\",\n    \"user\": {\n        \"email\": \"user@user.com\",\n        \"name\": \"User Tester Login\",\n        \"role\": \"USER\",\n        \"status\": 1,\n        \"_id\": \"685b6cbf8179dc8585094967\",\n        \"createdAt\": \"2025-06-25T03:27:59.321Z\",\n        \"updatedAt\": \"2025-06-25T04:32:09.624Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dev@dev.com\",\n    \"password\": \"user@123!\",\n    \"name\": \"User Tester Login\",\n    \"role\": \"USER\",\n    \"status\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user?id=685b6cbf8179dc8585094967",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b6cbf8179dc8585094967"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-jNWeI5wUTbYVBPnw7G5MzLZwWO4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:32:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"O campo 'email' com o valor 'dev@dev.com' já existe no nosso sistema...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "change password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    let req = JSON.parse(pm.request.body.raw);",
+									"    pm.collectionVariables.set('password', req.newPassword);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@123!\",\n    \"repeatPassword\": \"dev@123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@1234!\",\n    \"repeatPassword\": \"dev@1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user/password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user",
+										"password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "334"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14e-jWe1cMiPOR7UbpODCH3Bj5QBW50\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:32:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"A sua senha foi alterada com sucesso!\",\n    \"user\": {\n        \"email\": \"dev@dev.com\",\n        \"password\": \"$2b$10$fW9N/IwXPsuR1pKwBdB7R.1chCrIuTiCSrcwr8INqVGxTQGfH6nVW\",\n        \"name\": \"Developer Tester System\",\n        \"role\": \"ADMIN\",\n        \"status\": 1,\n        \"_id\": \"685b6cbe8179dc8585094961\",\n        \"createdAt\": \"2025-06-25T03:27:58.986Z\",\n        \"updatedAt\": \"2025-06-25T04:32:55.175Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@1234!\",\n    \"repeatPassword\": \"dev@1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/user/password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"user",
+										"password"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-qpqlfII+qSjaLhqBaSNxWFFm2p0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:33:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"A sua nova senha não pode ser igual a sua senha atual...\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/client?page=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "68572c5fb5262f7d18223103",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "developer",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "000.000.000-01",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "(00) 0 0000-0001",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "birthday",
+									"value": "01/01/2000",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "IN_PROGRESS",
+									"disabled": true
+								},
+								{
+									"key": "user",
+									"value": "685b6cbe8179dc8585094961",
+									"disabled": true
+								},
+								{
+									"key": "createdAt",
+									"value": "01/01/2025",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client?page=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "68572c5fb5262f7d18223103",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "developer",
+											"disabled": true
+										},
+										{
+											"key": "cpf",
+											"value": "000.000.000-01",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "(00) 0 0000-0001",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "email@gmail.com",
+											"disabled": true
+										},
+										{
+											"key": "birthday",
+											"value": "01/01/2000",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "IN_PROGRESS",
+											"disabled": true
+										},
+										{
+											"key": "user",
+											"value": "685b6cbe8179dc8585094961",
+											"disabled": true
+										},
+										{
+											"key": "createdAt",
+											"value": "01/01/2025",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3100"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1c-ylBWzItRbWzqFeU/6my7qnUptWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:41:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"clients\": [\n        {\n            \"_id\": \"685b6cc18179dc85850949a7\",\n            \"name\": \"Damon Jerde\",\n            \"email\": \"Aiyana_Kris@yahoo.com\",\n            \"phone\": 94956728422,\n            \"cpf\": 71696380833,\n            \"birthday\": \"1968-10-02T14:42:25.586Z\",\n            \"user\": \"685b6cbf8179dc8585094967\",\n            \"status\": \"FINISHED\",\n            \"createdAt\": \"2025-06-25T03:28:01.022Z\",\n            \"updatedAt\": \"2025-06-25T03:28:01.022Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc85850949a5\",\n            \"name\": \"Winston Douglas\",\n            \"email\": \"Terrence15@yahoo.com\",\n            \"phone\": 63945837008,\n            \"cpf\": 76519271634,\n            \"birthday\": \"1999-04-26T22:40:18.785Z\",\n            \"user\": \"685b6cbf8179dc8585094963\",\n            \"status\": \"PENDING\",\n            \"createdAt\": \"2025-06-25T03:28:00.974Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.974Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc85850949a3\",\n            \"name\": \"Denise Ryan\",\n            \"email\": \"Vena37@yahoo.com\",\n            \"phone\": 63940214353,\n            \"cpf\": 93811787476,\n            \"birthday\": \"1982-04-22T18:55:28.765Z\",\n            \"user\": \"685b6cbe8179dc8585094961\",\n            \"status\": \"IN_PROGRESS\",\n            \"createdAt\": \"2025-06-25T03:28:00.926Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.926Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc85850949a1\",\n            \"name\": \"Cory Franey\",\n            \"email\": \"Lloyd.Strosin0@hotmail.com\",\n            \"phone\": 71942097655,\n            \"cpf\": 1543525681,\n            \"birthday\": \"1960-10-14T16:38:52.800Z\",\n            \"user\": \"685b6cbf8179dc8585094963\",\n            \"status\": \"FINISHED\",\n            \"createdAt\": \"2025-06-25T03:28:00.845Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.845Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc858509499f\",\n            \"name\": \"Kari Becker\",\n            \"email\": \"Nova43@yahoo.com\",\n            \"phone\": 83978038863,\n            \"cpf\": 83251376051,\n            \"birthday\": \"1992-08-02T17:20:50.771Z\",\n            \"user\": \"685b6cbf8179dc8585094963\",\n            \"status\": \"FINISHED\",\n            \"createdAt\": \"2025-06-25T03:28:00.795Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.795Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc858509499d\",\n            \"name\": \"Amelia Rohan\",\n            \"email\": \"Mozell95@hotmail.com\",\n            \"phone\": 93906026043,\n            \"cpf\": 60507057251,\n            \"birthday\": \"1974-03-15T21:26:11.502Z\",\n            \"user\": \"685b6cbe8179dc8585094961\",\n            \"status\": \"PENDING\",\n            \"createdAt\": \"2025-06-25T03:28:00.745Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.745Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc858509499b\",\n            \"name\": \"Johanna Robel\",\n            \"email\": \"Cody40@yahoo.com\",\n            \"phone\": 74948287249,\n            \"cpf\": 29282099390,\n            \"birthday\": \"1993-12-20T10:32:44.845Z\",\n            \"user\": \"685b6cbf8179dc8585094967\",\n            \"status\": \"FINISHED\",\n            \"createdAt\": \"2025-06-25T03:28:00.697Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.697Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc8585094999\",\n            \"name\": \"Gloria Nienow\",\n            \"email\": \"Jasper0@yahoo.com\",\n            \"phone\": 30974048069,\n            \"cpf\": 68504969305,\n            \"birthday\": \"1976-09-23T15:58:56.356Z\",\n            \"user\": \"685b6cbf8179dc8585094967\",\n            \"status\": \"PAUSED\",\n            \"createdAt\": \"2025-06-25T03:28:00.649Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.649Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc8585094997\",\n            \"name\": \"Marilyn Hegmann MD\",\n            \"email\": \"Mauricio32@hotmail.com\",\n            \"phone\": 23987352834,\n            \"cpf\": 82429500963,\n            \"birthday\": \"1960-10-26T11:50:57.280Z\",\n            \"user\": \"685b6cbe8179dc8585094961\",\n            \"status\": \"CANCELED\",\n            \"createdAt\": \"2025-06-25T03:28:00.600Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.600Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"685b6cc08179dc8585094995\",\n            \"name\": \"Perry Welch\",\n            \"email\": \"Alize_Muller31@yahoo.com\",\n            \"phone\": 57926483987,\n            \"cpf\": 20304079024,\n            \"birthday\": \"1998-12-06T07:02:47.381Z\",\n            \"user\": \"685b6cbf8179dc8585094963\",\n            \"status\": \"IN_PROGRESS\",\n            \"createdAt\": \"2025-06-25T03:28:00.551Z\",\n            \"updatedAt\": \"2025-06-25T03:28:00.551Z\",\n            \"__v\": 0\n        }\n    ],\n    \"page\": {\n        \"current\": 1,\n        \"total\": 4,\n        \"count\": 31\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client?status=IN_PROGRESS1&page=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "68572c5fb5262f7d18223103",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "developer",
+											"disabled": true
+										},
+										{
+											"key": "cpf",
+											"value": "000.000.000-01",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "(00) 0 0000-0001",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "email@gmail.com",
+											"disabled": true
+										},
+										{
+											"key": "birthday",
+											"value": "01/01/2000",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "IN_PROGRESS1"
+										},
+										{
+											"key": "user",
+											"value": "685b6cbe8179dc8585094961",
+											"disabled": true
+										},
+										{
+											"key": "createdAt",
+											"value": "01/01/2025",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"74-3N6LPaObEOT9CT/+7xVuwruVl6M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:44:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\n\\n* O campo 'status' precisa ser igual a um desses: 'IN_PROGRESS, FINISHED, PAUSED, PENDING, CANCELED'\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"fulano de fulano\",\n    \"cpf\": \"000.000.000-01\",\n    \"phone\": \"(00) 0 0000-0001\",\n    \"email\": \"fulano@test.com\",\n    \"birthday\": \"23/05/2000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/client",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"fulano de fulano\",\n    \"cpf\": \"000.000.000-01\",\n    \"phone\": \"(00) 0 0000-0001\",\n    \"email\": \"fulano@test.com\",\n    \"birthday\": \"23/05/2000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/client",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "346"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15a-QTo67mE5PI1wBB9nB8Ww2VQx40g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:57:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"O cliente foi cadastrado com sucesso!\",\n    \"client\": {\n        \"name\": \"fulano de fulano\",\n        \"phone\": 1,\n        \"cpf\": 1,\n        \"email\": \"fulano@test.com\",\n        \"birthday\": \"2000-05-23T00:00:00.000Z\",\n        \"user\": \"685b6cbe8179dc8585094961\",\n        \"status\": \"IN_PROGRESS\",\n        \"_id\": \"685b81bbe68a8a98b17bec15\",\n        \"createdAt\": \"2025-06-25T04:57:31.027Z\",\n        \"updatedAt\": \"2025-06-25T04:57:31.027Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"fulano de fulano\",\n    \"cpf\": \"000.000.000-01\",\n    \"phone\": \"(00) 0 0000-0001\",\n    \"email\": \"fulano@test.com\",\n    \"birthday\": \"23/05/2000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/client",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-YcYfUa1I27gNJCAwXWOwbitMGcU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 04:58:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"O campo 'email' com o valor 'fulano@test.com' já existe no nosso sistema...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"fulano edited\",\n    \"cpf\": \"200.000.000-00\",\n    \"phone\": \"(10) 0 0000-0000\",\n    \"email\": \"edited@test.com\",\n    \"birthday\": \"23/05/2000\",\n    \"status\": \"FINISHED\",\n    \"user\": \"682c208a6c673ebb32f8d368\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec15",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "685b81bbe68a8a98b17bec15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"fulano edited\",\n    \"cpf\": \"200.000.000-00\",\n    \"phone\": \"(10) 0 0000-0000\",\n    \"email\": \"edited@test.com\",\n    \"birthday\": \"23/05/2000\",\n    \"status\": \"FINISHED\",\n    \"user\": \"682c208a6c673ebb32f8d368\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec15",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b81bbe68a8a98b17bec15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "368"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"170-d/ZlOXNMs+BQPVwgSMjvXwKl/vw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 05:06:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Os dados do cliente foi alterado com sucesso!\",\n    \"client\": {\n        \"name\": \"fulano edited\",\n        \"phone\": 10000000000,\n        \"cpf\": 20000000000,\n        \"email\": \"edited@test.com\",\n        \"birthday\": \"2000-05-23T00:00:00.000Z\",\n        \"user\": \"682c208a6c673ebb32f8d368\",\n        \"status\": \"FINISHED\",\n        \"_id\": \"685b81bbe68a8a98b17bec15\",\n        \"createdAt\": \"2025-06-25T04:57:31.027Z\",\n        \"updatedAt\": \"2025-06-25T05:06:27.631Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"fulano edited\",\n    \"cpf\": \"200.000.000-00\",\n    \"phone\": \"(10) 0 0000-0000\",\n    \"email\": \"edited@test.com\",\n    \"birthday\": \"23/05/2000\",\n    \"status\": \"FINISHED\",\n    \"user\": \"682c208a6c673ebb32f8d368\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec12",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b81bbe68a8a98b17bec12"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-bt3rbieaKXpCPvPeKj9mCS1wFDQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 05:06:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Não existe nenhum cliente vinculado a esse ID...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec15",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "685b81bbe68a8a98b17bec15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec15",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b81bbe68a8a98b17bec15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"165-/e8r80GFHbLYSaMSg9O0LxOpNJQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 05:15:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"O cliente foi apagado com sucesso!\",\n    \"client\": {\n        \"_id\": \"685b81bbe68a8a98b17bec15\",\n        \"name\": \"fulano edited\",\n        \"phone\": 10000000000,\n        \"cpf\": 20000000000,\n        \"email\": \"edited@test.com\",\n        \"birthday\": \"2000-05-23T00:00:00.000Z\",\n        \"user\": \"682c208a6c673ebb32f8d368\",\n        \"status\": \"FINISHED\",\n        \"createdAt\": \"2025-06-25T04:57:31.027Z\",\n        \"updatedAt\": \"2025-06-25T05:06:27.631Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client?id=685b81bbe68a8a98b17bec15",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "685b81bbe68a8a98b17bec15"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-bt3rbieaKXpCPvPeKj9mCS1wFDQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 05:15:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Não existe nenhum cliente vinculado a esse ID...\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/status",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/status",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-c6Hfa5VVP+Ghysj+6y9cPi5QQbk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Jun 2025 04:33:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Hello World\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "dev@dev.com",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "dev@123!",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": ""
+		}
+	]
+}
