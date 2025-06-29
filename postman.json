@@ -878,179 +878,6 @@
 							"body": "{\n    \"error\": \"O campo 'email' com o valor 'dev@dev.com' já existe no nosso sistema...\"\n}"
 						}
 					]
-				},
-				{
-					"name": "change password",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"if (pm.response.code === 200) {",
-									"    let req = JSON.parse(pm.request.body.raw);",
-									"    pm.collectionVariables.set('password', req.newPassword);",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@123!\",\n    \"repeatPassword\": \"dev@123!\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{URL}}/user/password",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"user",
-								"password"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@1234!\",\n    \"repeatPassword\": \"dev@1234!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{URL}}/user/password",
-									"host": [
-										"{{URL}}"
-									],
-									"path": [
-										"user",
-										"password"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "334"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"14e-jWe1cMiPOR7UbpODCH3Bj5QBW50\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 25 Jun 2025 04:32:55 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"A sua senha foi alterada com sucesso!\",\n    \"user\": {\n        \"email\": \"dev@dev.com\",\n        \"password\": \"$2b$10$fW9N/IwXPsuR1pKwBdB7R.1chCrIuTiCSrcwr8INqVGxTQGfH6nVW\",\n        \"name\": \"Developer Tester System\",\n        \"role\": \"ADMIN\",\n        \"status\": 1,\n        \"_id\": \"685b6cbe8179dc8585094961\",\n        \"createdAt\": \"2025-06-25T03:27:58.986Z\",\n        \"updatedAt\": \"2025-06-25T04:32:55.175Z\",\n        \"__v\": 0\n    }\n}"
-						},
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"actualPassword\": \"{{password}}\",\n    \"newPassword\": \"dev@1234!\",\n    \"repeatPassword\": \"dev@1234!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{URL}}/user/password",
-									"host": [
-										"{{URL}}"
-									],
-									"path": [
-										"user",
-										"password"
-									]
-								}
-							},
-							"status": "Forbidden",
-							"code": 403,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "69"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"45-qpqlfII+qSjaLhqBaSNxWFFm2p0\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 25 Jun 2025 04:33:11 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"error\": \"A sua nova senha não pode ser igual a sua senha atual...\"\n}"
-						}
-					]
 				}
 			]
 		},
@@ -1823,6 +1650,137 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"error\": \"Não existe nenhum cliente vinculado a esse ID...\"\n}"
+						}
+					]
+				},
+				{
+					"name": "counter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/client/counter",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client",
+								"counter"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client/counter",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client",
+										"counter"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-Ue55/IREzQH9sLZkBrCwxxoMG2E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 00:12:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": {\n        \"total\": 31,\n        \"IN_PROGRESS\": 6,\n        \"FINISHED\": 10,\n        \"PENDING\": 7,\n        \"CANCELED\": 3\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/client/counter",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"client",
+										"counter"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-wDZ8s39HQNrbujezNep5ejjvG/0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 00:13:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"O token informado é invalido...\"\n}"
 						}
 					]
 				}
