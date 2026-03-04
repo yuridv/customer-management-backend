@@ -24,7 +24,6 @@ const MongoDB = async() => new Promise(async(res, rej) => {
 module.exports = MongoDB;
 
 const Exit = async() => {
-  console.log('');
   console.log(`${colors.RED}[MongoDB]=> Closing connection...${colors.RESET}`);
   
   await mongoose.disconnect();
